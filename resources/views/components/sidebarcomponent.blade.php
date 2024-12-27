@@ -20,7 +20,7 @@
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>CMS</a>
                         <div class="dropdown-menu bg-transparent border-0">
                             <a href="{{route('banner')}}" class="dropdown-item">Banner Slider</a>
-                            <a href="{{route('produc')}}"class="dropdown-item">produc</a>
+                            <a href="{{route('produk')}}"class="dropdown-item">produc</a>
                             <a href="element.html" class="dropdown-item">Other Elements</a>
                         </div>
                     </div>

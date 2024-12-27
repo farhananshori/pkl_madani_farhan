@@ -20,12 +20,16 @@ class admincontroller extends Controller
    {
     return view('admins.banner');
    } 
-   public function produc()
+   public function produk()
    {
-    return view('admins.produc');
+    return view('admins.produk');
    } 
    public function adbanner()
    {
     return view('admins.adbanner');
+   } 
+   public function adproduk()
+   {
+    return view('admins.adproduk');
    } 
 }
