@@ -13,3 +13,4 @@ Route::get('/banner',[admincontroller::class, 'banner'])->name('banner');
 Route::get('/produc',[admincontroller::class, 'produk'])->name('produk');
 Route::get('/adbanner',[admincontroller::class, 'adbanner'])->name('adbanner');
 Route::get('/adproduk',[admincontroller::class, 'adproduk'])->name('adproduk');
+Route::post('/prosesadbanner',[admincontroller::class, 'prosesadbanner'])->name('prosesadbanner');

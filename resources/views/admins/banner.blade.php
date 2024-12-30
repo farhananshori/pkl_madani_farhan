@@ -26,15 +26,17 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach($banner as $urutan => $data)
                                         <tr>
-                                            <th scope="row">1</th>
-                                            <td>John</td>
-                                            <td>Doe</td>
-                                            <td>jhon@email.com</td>
+                                            <th scope="row">{{$urutan+1}}</th>
+                                            <td>{{$data->judul}}</td>
+                                            <td>{{$data->descripsi}}</td>
+                                            <td><img src="{{Storage::url($data->gambar)}}" alt= ""style="width : 200px;"></td>
                                             <td> <a href="#"><button type="button" class="btn btn-warning m-2">Edit</button></a>
                                             <a href="#"><button type="button" class="btn btn-danger m-2">Hapus</button></a> 
                                          </td>
                                         </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
