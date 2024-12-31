@@ -36,8 +36,8 @@
                                             <td><img src="{{Storage::url($data->gambar)}}" alt= ""style="width : 200px;"></td>
                                             <td>{{round($data->harga,0)}}</td>
                                             <td>{{round($data->stok,0)}}</td>
-                                            <td> <a href="#"><button type="button" class="btn btn-warning m-2">Edit</button></a>
-                                            <a href="#"><button type="button" class="btn btn-danger m-2">Hapus</button></a> 
+                                            <td> <a href="{{ route('produk-edit',['id'=>$data->id])}}"><button type="button" class="btn btn-warning m-2">Edit</button></a>
+                                            <a href="{{ route('produk-delete',['id'=>$data->id])}}"><button type="button" class="btn btn-danger m-2">Hapus</button></a> 
                                          </td>
                                         </tr>
                                         @endforeach

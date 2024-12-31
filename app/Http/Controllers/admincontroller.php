@@ -126,7 +126,63 @@ class admincontroller extends Controller
       return redirect()->route('banner');
       
    }
+   public function login()
+   { 
+    return view('login');
+   } 
+   public function register()
+   { 
+    return view('register');
+   } 
+   public function ambilproduk(Request $request)
+   {
+      //ambil produk untuk di edit
+      $produk_data = produk::where('id',$request->id)->first();
+      //data tidak ada di database
+      if($produk_data == null){
+         Alert::error('Data tidak ditemukan');
+         return redirect(route('produk'));
+   
+      }
+      $data = [
+         'produk' =>$produk_data
+      ];
+      Alert::success('Data ditemukan');
+      return view('admins.produk-edit',$data);
+   } 
+   public function deletproduk(Request $request)
+   {
+      $delete_data = produk::where('id',$request->id)->delete();
+      if($delete_data == null){
+         Alert::error('Data gagal dihapus');
+         return redirect(route('produk'));
+   
+      }
+      Alert::success('Data berhasil dihapus');
+      return redirect(route('produk'));
+      
+   } 
+   public function peroseseditproduk(Request $request,$id){
+      $data =[
+         'judul'=> $request->judul,
+         'deskripsi'=> $request->deskripsi,
+         'harga'=> $request->harga,
+         'stok'=> $request->stok,
+      ];
+      
+      
+      if($request->hasfile('gambar')){
+         $imagepath = $request->file('gambar')->store('image','public');
+         $data['gambar'] = $imagepath;
 
+      }
+      
+      produk::query()->where('id',$id)->update($data);
+      Alert::success('Data Berhasil Diupdate');
+      return redirect()->route('produk');
+      
+   }
+   
    
 
 }
