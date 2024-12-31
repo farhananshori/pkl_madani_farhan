@@ -80,4 +80,53 @@ class admincontroller extends Controller
 
    }
 
+   public function ambilbanner(Request $request)
+   {
+      //ambil banner untuk di edit
+      $banner_data = Banner::where('id',$request->id)->first();
+      //data tidak ada di database
+      if($banner_data == null){
+         Alert::error('Data tidak ditemukan');
+         return redirect(route('banner'));
+   
+      }
+      $data = [
+         'banner' =>$banner_data
+      ];
+      Alert::success('Data ditemukan');
+      return view('admins.banner-edit',$data);
+   } 
+   public function deletbanner(Request $request)
+   {
+      $delete_data = Banner::where('id',$request->id)->delete();
+      if($delete_data == null){
+         Alert::error('Data gagal dihapus');
+         return redirect(route('banner'));
+   
+      }
+      Alert::success('Data berhasil dihapus');
+      return redirect(route('banner'));
+      
+   } 
+   public function perosesedit(Request $request,$id){
+      $data =[
+         'judul'=> $request->judul,
+         'descripsi'=> $request->descripsi,
+      ];
+      
+      
+      if($request->hasfile('gambar')){
+         $imagepath = $request->file('gambar')->store('image','public');
+         $data['gambar'] = $imagepath;
+
+      }
+      
+      Banner::query()->where('id',$id)->update($data);
+      Alert::success('Data Berhasil Diupdate');
+      return redirect()->route('banner');
+      
+   }
+
+   
+
 }

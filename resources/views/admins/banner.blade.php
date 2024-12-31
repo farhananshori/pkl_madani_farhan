@@ -32,8 +32,8 @@
                                             <td>{{$data->judul}}</td>
                                             <td>{{$data->descripsi}}</td>
                                             <td><img src="{{Storage::url($data->gambar)}}" alt= ""style="width : 200px;"></td>
-                                            <td> <a href="#"><button type="button" class="btn btn-warning m-2">Edit</button></a>
-                                            <a href="#"><button type="button" class="btn btn-danger m-2">Hapus</button></a> 
+                                            <td> <a href="{{ route('banner-edit',['id'=>$data->id])}}"><button type="button" class="btn btn-warning m-2">Edit</button></a>
+                                            <a href="{{ route('banner-delete',['id'=>$data->id])}}"><button type="button" class="btn btn-danger m-2">Hapus</button></a> 
                                          </td>
                                         </tr>
                                         @endforeach

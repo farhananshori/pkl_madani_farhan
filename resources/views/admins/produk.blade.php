@@ -34,8 +34,8 @@
                                             <td>{{$data->judul}}</td>
                                             <td>{{$data->deskripsi}}</td>
                                             <td><img src="{{Storage::url($data->gambar)}}" alt= ""style="width : 200px;"></td>
-                                            <td>{{$data->harga}}</td>
-                                            <td>{{$data->stok}}</td>
+                                            <td>{{round($data->harga,0)}}</td>
+                                            <td>{{round($data->stok,0)}}</td>
                                             <td> <a href="#"><button type="button" class="btn btn-warning m-2">Edit</button></a>
                                             <a href="#"><button type="button" class="btn btn-danger m-2">Hapus</button></a> 
                                          </td>
