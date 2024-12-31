@@ -26,11 +26,11 @@
                                </div>
                                <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label">Harga</label>
-                                <input type="Text" class="form-control"  name="harga"id="exampleInputPassword1" value="{{ $produk->harga,0}}">
+                                <input type="Text" class="form-control"  name="harga"id="exampleInputPassword1" value="{{ $produk->harga}}">
                             </div>
                             <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label">Stok</label>
-                                <input type="number" class="form-control"  name="stok" id="exampleInputPassword1" value="{{ $produk->stok,0}}">
+                                <input type="number" class="form-control"  name="stok" id="exampleInputPassword1" value="{{ $produk->stok}}">
                             </div>
                                <button type="submit" class="btn btn-primary">Simpan</button>
                            </form>
