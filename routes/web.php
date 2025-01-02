@@ -2,12 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\http\Controllers\admincontroller;
+use App\Http\Controllers\usercontroler;
 
 // Route::get('/', function () {
 //     return view('welcome');
 // });
 
-Route::get('/',[admincontroller::class, 'index']);
 Route::get('/hello',[admincontroller::class, 'hello'])->name('dasboatd');
 Route::get('/banner',[admincontroller::class, 'banner'])->name('banner');
 Route::get('/produc',[admincontroller::class, 'produk'])->name('produk');
@@ -23,3 +23,5 @@ Route::get('/register',[admincontroller::class, 'register'])->name('register');
 Route::get('/produk-edit',[admincontroller::class, 'ambilproduk'])->name('produk-edit');
 Route::get('/produk-delete',[admincontroller::class, 'deletproduk'])->name('produk-delete');
 Route::post('/produk-update/{id}',[admincontroller::class, 'peroseseditproduk'])->name('produk-update');
+
+Route::get('/',[usercontroler::class, 'landingpage'])->name('landingpage');
