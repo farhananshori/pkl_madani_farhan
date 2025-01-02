@@ -41,20 +41,17 @@
         </div>
     </div>
     <!--PreLoader Ends-->
-    <div class="content">
-        <x-navbar-olsop></x-navbar-olsop>
-        {{$slot}}
+	<x-navbar-olsop></x-navbar-olsop>
+	{{$slot}}
+	<x-footer-olsop></x-footer-olsop>
 
-<x-footer-olsop></x-footer-olsop>
-       
-    </div>
 
 	
 	
 
 	
 	<!-- jquery -->
-	<script src="{{asset(' assets/js/jquery-1.11.3.min.js')}}"></script>
+	<script src="{{asset('assets/js/jquery-1.11.3.min.js')}}"></script>
 	<!-- bootstrap -->
 	<script src="{{asset ('assets/bootstrap/js/bootstrap.min.js')}}"></script>
 	<!-- count down -->

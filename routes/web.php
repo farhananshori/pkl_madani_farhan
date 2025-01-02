@@ -25,3 +25,4 @@ Route::get('/produk-delete',[admincontroller::class, 'deletproduk'])->name('prod
 Route::post('/produk-update/{id}',[admincontroller::class, 'peroseseditproduk'])->name('produk-update');
 
 Route::get('/',[usercontroler::class, 'landingpage'])->name('landingpage');
+Route::get('/ditelproduk',[usercontroler::class, 'ditelproduk'])->name('ditelproduk');
