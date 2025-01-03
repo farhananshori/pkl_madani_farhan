@@ -6,6 +6,8 @@ use App\Models\Banner;
 use App\Models\Produk;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class admincontroller extends Controller
 {
@@ -182,6 +184,36 @@ class admincontroller extends Controller
       return redirect()->route('produk');
       
    }
+   public function authenticate(Request $request)
+    {
+        $credentials = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
+ 
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+ 
+            return redirect(route('dasboatd'));
+        }
+        Alert::error('email atau password salah');
+        return back();
+    }
+    public function daftar(Request $request)
+   {
+      $data =[
+         'email'=>$request->email,
+         'name'=>$request->name,
+         'password'=>$request->password
+      ]; 
+      $user=User::create($data);
+      if($user){
+         Alert::success('Daftar berhasil');
+         return redirect(route('login'));
+   }
+   Alert::error('Daftar gagal');
+    return redirect()->back();
+}
    
    
 

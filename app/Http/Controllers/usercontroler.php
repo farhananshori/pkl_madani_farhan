@@ -27,7 +27,6 @@ class usercontroler extends Controller
    if($produk_data == null){
       Alert::error('Data tidak ditemukan');
       return redirect(route('produk'));
-
    }
    $data = [
       'produk' =>$produk_data
@@ -35,5 +34,7 @@ class usercontroler extends Controller
    Alert::success('Data ditemukan');
     return view('ecommerce.ditelproduk',$data);
    } 
+  
+   
   
 }

@@ -109,7 +109,7 @@
                         <a href="{{ route('ditelproduk',['id'=>$data->id])}}"><img src="{{Storage::url($data->gambar)}}" alt=""></a>
                     </div>
                     <h3>{{$data->judul}}</h3>
-                    <p class="product-price"><span>Per Kg</span> Rp {{$data->harga}}</p>
+                    <p class="product-price"><span>Per Kg</span> Rp {{round($data->harga,0)}}</p>
                     <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
                 </div>
             </div>

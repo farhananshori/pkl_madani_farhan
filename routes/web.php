@@ -8,7 +8,7 @@ use App\Http\Controllers\usercontroler;
 //     return view('welcome');
 // });
 
-Route::get('/hello',[admincontroller::class, 'hello'])->name('dasboatd');
+Route::get('/hello',[admincontroller::class, 'hello'])->name('dasboatd')->middleware('auth');
 Route::get('/banner',[admincontroller::class, 'banner'])->name('banner');
 Route::get('/produc',[admincontroller::class, 'produk'])->name('produk');
 Route::get('/adbanner',[admincontroller::class, 'adbanner'])->name('adbanner');
@@ -26,3 +26,6 @@ Route::post('/produk-update/{id}',[admincontroller::class, 'peroseseditproduk'])
 
 Route::get('/',[usercontroler::class, 'landingpage'])->name('landingpage');
 Route::get('/ditelproduk',[usercontroler::class, 'ditelproduk'])->name('ditelproduk');
+Route::post('/login',[admincontroller::class, 'authenticate'])->name('login-proses');
+Route::post('/daftar',[admincontroller::class, 'daftar'])->name('daftar');
+
