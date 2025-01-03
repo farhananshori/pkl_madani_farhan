@@ -5,25 +5,25 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-5">
+					<form method="POST" action="{{route('ditelproduk',['id'=>$produk->id])}}" enctype="multipart/form-data">
+						@csrf
 					<div class="single-product-img">
-                        @foreach($produk as $data)
-						<img src="{{Storage::url($data->gambar)}}" alt="">
+						<img src="{{Storage::url($produk->gambar)}}" alt="">
 					</div>
 				</div>
                 
 				<div class="col-md-7">
 					<div class="single-product-content">
-						<h3>{{$data->judul}}</h3>
-						<p class="single-product-pricing"><span>Harga</span>{{$data->harga}} </p>
-						<p>{{$data->deskripsi}}</p>
+						<h3>{{$produk->judul}}</h3>
+						<p class="single-product-pricing"><span>Harga</span>{{round($produk->harga,0)}} </p>
+						<p>{{$produk->deskripsi}}</p>
 						<div class="single-product-form">
 							<form action="index.html">
-								<input type="number" placeholder="{{round($data->stok,0)}}">
+								<input type="number" placeholder="{{round($produk->stok,0)}}">
 							</form>
 							<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
 							<p><strong>Categories: </strong>Fruits, Organic</p>
 						</div>
-                        @endforeach
 
 						<h4>Share:</h4>
 						<ul class="product-share">

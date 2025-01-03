@@ -106,7 +106,7 @@
             <div class="col-lg-4 col-md-6 text-center">
                 <div class="single-product-item">
                     <div class="product-image">
-                        <a href="{{route('ditelproduk')}}"><img src="{{Storage::url($data->gambar)}}" alt=""></a>
+                        <a href="{{ route('ditelproduk',['id'=>$data->id])}}"><img src="{{Storage::url($data->gambar)}}" alt=""></a>
                     </div>
                     <h3>{{$data->judul}}</h3>
                     <p class="product-price"><span>Per Kg</span> Rp {{$data->harga}}</p>
